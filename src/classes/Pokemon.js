@@ -1,6 +1,6 @@
 const { default: Axios } = require("axios");
 
-class Pokemon {
+export default class Pokemon {
     constructor(id=0, name="Carregando", image="images/imagem-nao-disponivel.png", price="", errorImage="images/imagem-nao-disponivel.png", stats=[{}]) {
         this.id = id;
         this.name = name;
@@ -11,5 +11,3 @@ class Pokemon {
         this.quantidade = 1;
     }
 }
-
-module.exports = Pokemon;
