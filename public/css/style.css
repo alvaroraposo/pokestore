@@ -152,7 +152,7 @@ body {
 
 #divCardsId .card-body p:nth-of-type(1) {
     font-weight: bolder;
-    font-size: medium;
+    font-size: large;
     color: cornflowerblue;
     margin-top: 5px;
 }
