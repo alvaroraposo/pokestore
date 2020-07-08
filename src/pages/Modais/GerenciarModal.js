@@ -64,7 +64,8 @@ export default class GerenciarModal extends React.Component {
                 <li className="col-12  col-lg-2">R$ {item.price},00</li>
                 <li className="col-12 col-lg-2">
                     <button id={`btnDecrease${index}`} onClick={() => this.onButtonDecreaseClick(carrinhoDeCompras, index)}>-</button>
-                    <input id={`btnInput${index}`} type="text" onChange={(e) => { this.onChangeInput(e, carrinhoDeCompras, index); }} 
+                    <span>{this.state.carrinhoDeCompras[index].quantidade}</span>
+                    {/* <input id={`btnInput${index}`} type="text" onChange={(e) => { this.onChangeInput(e, carrinhoDeCompras, index); }} 
                         onBlur={(e) => { console.log("ONBLUR", e.target.value, this.state.carrinhoDeCompras[index].quantidade);
                                             if(e.target.value === "") {
                                                 e.target.value = 1;
@@ -73,7 +74,7 @@ export default class GerenciarModal extends React.Component {
                                                 this.setState({...this.state, carrinhoDeCompras: carrinhoDeCompras});
                                             } }}                         
                         value={this.state.carrinhoDeCompras[index].quantidade} 
-                        className="gerenciarModalInput"/>
+                        className="gerenciarModalInput"/> */}
                     <button id={`btnIncrease${index}`} onClick={() => this.onButtonIncreaseClick(carrinhoDeCompras, index)}>+</button>
                 </li>
                 <li className="col-12 col-lg-2">R$ {item.price * item.quantidade}</li>
