@@ -2,11 +2,7 @@ import { Modal } from 'react-bootstrap';
 import React from 'react';
 import Pokemon from '../../classes/Pokemon';
 
-export default function ItemModal(props) {
-    const itemString = {
-        heading: "ADQUIRA JÁ SEU POKEMON!"
-    };
-    
+export default function ItemModal(props) {  
     const [botoes, corpo] = RenderAddItem(props);    
 
     return (
@@ -29,9 +25,9 @@ export default function ItemModal(props) {
     );
 }
 
-function RenderEstatisticas(item) {
+function RenderEstatisticas(item, index) {
     return (
-        <p className="card-text"><i>{item.name}: {item.baseStat}</i></p>
+        <p key={index} className="card-text"><i>{item.name}: {item.baseStat}</i></p>
     );
 }
 
@@ -73,8 +69,8 @@ function RenderAddItem(props) {
                         <div className="card-body">
                             <p className="card-text">ESTATÍSTICAS</p>
                             { 
-                                renderPokemon.stats.map((item) => {
-                                    return RenderEstatisticas(item);
+                                renderPokemon.stats.map((item, index) => {
+                                    return RenderEstatisticas(item, index);
                             })}
                         </div>
                     </div>

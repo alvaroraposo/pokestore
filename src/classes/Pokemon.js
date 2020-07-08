@@ -1,5 +1,3 @@
-const { default: Axios } = require("axios");
-
 export default class Pokemon {
     constructor(id=0, name="Carregando", image="images/imagem-nao-disponivel.png", price="", errorImage="images/imagem-nao-disponivel.png", stats=[{}]) {
         this.id = id;

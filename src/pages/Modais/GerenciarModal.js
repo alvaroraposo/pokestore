@@ -89,7 +89,7 @@ export default class GerenciarModal extends React.Component {
     onPoubelleClick(carrinhoDeCompras, index) {        
         carrinhoDeCompras.splice(index, 1);
 
-        if(carrinhoDeCompras.length == 0)
+        if(carrinhoDeCompras.length === 0)
             this.props.onHide();
 
         this.setState({ ...this.state, carrinhoDeCompras, showConfirmarModalExcluir: false });

@@ -143,7 +143,7 @@ export default class PokemonGrid extends React.Component {
                                 }) }
                                 <Button type="submit" onClick={() => this.onGerenciarClick()} disabled={isVazio}>
                                         <i className="fas fa-cart-plus"></i>
-                                        <span class="d-inline"> CARRINHO</span>
+                                        <span className="d-inline"> CARRINHO</span>
                                 </Button>
                             </Card.Body>
                         </Accordion.Collapse>
@@ -170,7 +170,7 @@ export default class PokemonGrid extends React.Component {
     onPesquisaClick() {
         this.state.termoPesquisa = this.state.inputValue;
 
-        if(this.state.termoPesquisa == ""){  
+        if(this.state.termoPesquisa === ""){  
             this.setState({ ...this.STATE_INICIAL });
         }
         
@@ -188,7 +188,7 @@ export default class PokemonGrid extends React.Component {
 
                 for(let i = 1; i <= 5; i++){
                     if(i > totalPaginas) {
-                        if(totalPaginas == 0) {
+                        if(totalPaginas === 0) {
                             paginacao.push(1);
                         }
                         break;
@@ -203,7 +203,7 @@ export default class PokemonGrid extends React.Component {
                     ...this.state,
                         loaded: false,
                         gridList: lista.splice(offset, 8),
-                        paginaAtual: (offset == 0) ? 1 : this.state.paginaAtual,
+                        paginaAtual: (offset === 0) ? 1 : this.state.paginaAtual,
                         paginacaoList: paginacao,
                         total
                 });
@@ -220,7 +220,7 @@ export default class PokemonGrid extends React.Component {
     loadPage(){
         const offset = (this.state.paginaAtual - 1)*8;
 
-        if(!this.state.termoPesquisa || this.state.termoPesquisa.length == 0) {
+        if(!this.state.termoPesquisa || this.state.termoPesquisa.length === 0) {
             getPokemonList(offset).then((response) => {           
                 setTimeout(() => {
                     const [lista, total] = response;
@@ -251,10 +251,10 @@ export default class PokemonGrid extends React.Component {
         const totalPaginas = Math.ceil((totalItems / 8));
         const lista = [];
 
-        this.state.paginacaoList.map((item) => {
-            let disable = (item == this.state.paginaAtual) ? disableString: enableString;
+        this.state.paginacaoList.map((item, index) => {
+            let disable = (item === this.state.paginaAtual) ? disableString: enableString;
             lista.push(
-                <li className={disable}>
+                <li key={index} className={disable}>
                     <a className="page-link" href="javascript:void(0);" onClick={() => { 
                             this.state.paginaAtual = item; 
 
@@ -268,10 +268,12 @@ export default class PokemonGrid extends React.Component {
                     </a>
                 </li>
             );
+
+            return;
         });
 
-        const menorDisable = (this.state.paginaAtual == 1) ? disableString : enableString;
-        const maiorDisable = (this.state.paginaAtual == totalPaginas) ? disableString : enableString;
+        const menorDisable = (this.state.paginaAtual === 1) ? disableString : enableString;
+        const maiorDisable = (this.state.paginaAtual === totalPaginas) ? disableString : enableString;
         
         return (
             <div id="divPaginacaoId">            
@@ -317,7 +319,7 @@ export default class PokemonGrid extends React.Component {
     pagePrevious(page, totalPaginas) {
         this.state.paginaAtual = page;
 
-        if(this.state.paginacaoList[0] == 1) {
+        if(this.state.paginacaoList[0] === 1) {
             return;
         }
 
@@ -346,7 +348,7 @@ export default class PokemonGrid extends React.Component {
 
         this.state.paginaAtual = page;
 
-        if(this.state.paginacaoList[this.state.paginacaoList.length-1] == totalPaginas) {
+        if(this.state.paginacaoList[this.state.paginacaoList.length-1] === totalPaginas) {
             return;
         }
 

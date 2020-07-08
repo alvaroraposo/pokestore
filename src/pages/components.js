@@ -1,4 +1,3 @@
-import React from 'react';
 import Axios from 'axios';
 import Pokemon from '../classes/Pokemon';
 
@@ -52,7 +51,6 @@ export async function getPokemonList(offset = 0) {
 
 export async function getFullPokemonListByName(name, offset=0) {
     const lista = []; 
-    let totalItems = 0;
 
     await Axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1000`).then((response) => {
         const urls = [];             
@@ -116,19 +114,3 @@ export default function setInputFilter(textbox, inputFilter) {
       });
     });
 }
-
-export function isNumberKey(evt)
-{
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    return !(charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
-}  
-
-
-export function isNumericKey(evt)
-{
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode != 46 && charCode > 31 
-    && (charCode < 48 || charCode > 57))
-    return true;
-    return false;
-} 
