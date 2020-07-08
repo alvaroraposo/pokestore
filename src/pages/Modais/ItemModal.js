@@ -60,7 +60,7 @@ function RenderAddItem(props) {
                         <div className="card-body">
                             <p className="card-text">{renderPokemon.name.toUpperCase()}</p>
                             <p className="card-text">R$ {renderPokemon.price}</p>
-                            <div><img src="images\formas-pagamento.png" alt="..."/></div>                       
+                            <div><img src="images\formas-pagamento.png" alt="..."/></div>                   
                         </div>                                         
                     </div>
                 </div>
@@ -72,6 +72,7 @@ function RenderAddItem(props) {
                                 renderPokemon.stats.map((item, index) => {
                                     return RenderEstatisticas(item, index);
                             })}
+                            <div><img src="images\formas-pagamento.png" alt="..."/></div>
                         </div>
                     </div>
                 </div>                            

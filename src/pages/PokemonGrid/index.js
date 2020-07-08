@@ -98,7 +98,7 @@ export default class PokemonGrid extends React.Component {
 
     renderCardItem(item, index){
         return (
-            <div id={index} key={item.id} className="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div id={index} key={item.id} className="col-6 col-md-6 col-lg-4 col-xl-3">
                 <div className="card" onClick={ (e) => {this.onCardItemClick(e)}  }>
                     <img src={item.image} className="card-img-top" alt="..." onError={(e) => { 
                         e.target.onerror = null;
