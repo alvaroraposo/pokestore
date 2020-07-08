@@ -3,6 +3,19 @@ body {
     background-color: cornflowerblue;    
 }
 
+/* 
+    $bp-small: 48em; // 768px
+    $bp-medium: 64em; // 1024px
+    $bp-large: 85.375em; // 1366px
+    $bp-xlarge: 120em; // 1920px
+    $bp-xxlarge: 160em;
+*/
+@media screen and (min-width: 48em) {
+    body {
+        padding: 3em 3em 3em 3em;
+    }        
+}
+
 .container-fluid {
     background-color: lightgray;
     padding: 20px;
@@ -139,8 +152,15 @@ body {
 
 #divCardsId .card-body p:nth-of-type(1) {
     font-weight: bolder;
-    font-size: x-large;
+    font-size: medium;
     color: cornflowerblue;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 48em) {
+    #divCardsId .card-body p:nth-of-type(1) {        
+        font-size: medium;
+    }     
 }
 
 #divCardsId .card:hover{
@@ -149,7 +169,7 @@ body {
 }
 
 #divCardsId .card img {
-    width: 50%;
+    width: 70%;
     height: 100%;
 }
 
@@ -157,7 +177,12 @@ body {
     position: relative;
     top: 50%;
     transform: translateY(-40%);
-    max-width: 80%;
+}
+
+@media screen and (min-width: 48em) {
+    #myModalId {
+        max-width: 45%;
+    }        
 }
 
 #divFooterId {
@@ -176,6 +201,7 @@ body {
     width: 300px;
     min-width: 20%;
 }
+
 
 #myConfirmarModalId button {
     display: inline-block;
