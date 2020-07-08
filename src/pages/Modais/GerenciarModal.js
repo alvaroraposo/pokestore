@@ -14,7 +14,8 @@ export default class GerenciarModal extends React.Component {
             carrinhoDeCompras: props.myCart,
             showConfirmarModalExcluir: false,
             showConfirmarModalFinalizar: false,
-            confirmarModelType: ""
+            confirmarModelType: "",
+            itemExcluirIndex: -1
         }
     }
 
@@ -63,22 +64,31 @@ export default class GerenciarModal extends React.Component {
                 <li className="col-12  col-lg-2">R$ {item.price},00</li>
                 <li className="col-12 col-lg-2">
                     <button id={`btnDecrease${index}`} onClick={() => this.onButtonDecreaseClick(carrinhoDeCompras, index)}>-</button>
-                    <input id={`btnInput${index}`} type="text" onChange={(e) => { this.onChangeInput(e, carrinhoDeCompras, index); }}                         
+                    <input id={`btnInput${index}`} type="text" onChange={(e) => { this.onChangeInput(e, carrinhoDeCompras, index); }} 
+                        onBlur={(e) => { console.log("ONBLUR", e.target.value, this.state.carrinhoDeCompras[index].quantidade);
+                                            if(e.target.value === "") {
+                                                e.target.value = 1;
+                                                const carrinhoDeCompras = this.state.carrinhoDeCompras;
+                                                carrinhoDeCompras[index].quantidade = 1;
+                                                this.setState({...this.state, carrinhoDeCompras: carrinhoDeCompras});
+                                            } }}                         
                         value={this.state.carrinhoDeCompras[index].quantidade} 
                         className="gerenciarModalInput"/>
                     <button id={`btnIncrease${index}`} onClick={() => this.onButtonIncreaseClick(carrinhoDeCompras, index)}>+</button>
                 </li>
                 <li className="col-12 col-lg-2">R$ {item.price * item.quantidade}</li>
-                <li className="col-12 col-lg-2 "><a href="javascript:void(0);" className="fas fa-trash-alt" onClick={() => {this.setState({...this.state, showConfirmarModalExcluir: true})}}></a></li>
-                <ConfirmarModal modalType={this.CONFIRMAR_MODEL_EXCLUIR} show={this.state.showConfirmarModalExcluir && !this.state.showConfirmarModalFinalizar} onHide={() => {this.setState({...this.state, showConfirmarModalExcluir: false})}} onConfirmarClick={() => {this.onConfirmarClick(carrinhoDeCompras, index)}}/>
+                <li className="col-12 col-lg-2"><a id={`linkPoubelle${index}`} href="javascript:void(0);" className="fas fa-trash-alt" onClick={() => {this.setState({...this.state, itemExcluirIndex: index, showConfirmarModalExcluir: true})}}></a></li>
+                <ConfirmarModal modalType={this.CONFIRMAR_MODEL_EXCLUIR} show={this.state.showConfirmarModalExcluir && !this.state.showConfirmarModalFinalizar} onHide={() => {this.setState({...this.state, showConfirmarModalExcluir: false})}} onConfirmarClick={() => {
+                     this.onConfirmarClick();
+                     }}/>
             </>
         );       
     }
 
-    onConfirmarClick(carrinhoDeCompras, index) {
-        if(this.state.showConfirmarModalExcluir) {
-            this.onPoubelleClick(carrinhoDeCompras, index);
-            this.setState({...this.state, showConfirmarModalExcluir: false});            
+    onConfirmarClick() {
+        if(this.state.showConfirmarModalExcluir) {            
+            this.onPoubelleClick();
+            this.setState({...this.state, itemExcluirIndex: -1, showConfirmarModalExcluir: false});            
         }        
         else if(this.state.showConfirmarModalFinalizar) {
             this.props.onFinalizarCompra();       
@@ -86,7 +96,10 @@ export default class GerenciarModal extends React.Component {
         }
     }
 
-    onPoubelleClick(carrinhoDeCompras, index) {        
+    onPoubelleClick() {
+        const index = this.state.itemExcluirIndex;
+        const carrinhoDeCompras = this.state.carrinhoDeCompras;
+
         carrinhoDeCompras.splice(index, 1);
 
         if(carrinhoDeCompras.length === 0)
