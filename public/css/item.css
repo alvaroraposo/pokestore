@@ -1,0 +1,65 @@
+/* CARDS */
+#divItemId {
+    background-color: cornflowerblue;
+    padding: 10px;
+}
+
+#divItemId .card {
+    margin: 0 auto;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    align-items: center;
+    float: none;
+    border-radius: 20px;
+    border: 5px solid darkgray;
+    box-sizing : border-box;
+}
+
+#divItemId .card-header {
+    border-radius: 20px;
+    width: 100%;
+}
+
+#divItemId .card-body div {
+    padding: 0;
+}
+
+#divItemId .card-body div img {
+    width: 100%;
+    height: 100%;
+}
+
+#divItemId .card img {
+    width: 50%;
+    height: 100%;
+}
+
+#myModalId button {
+    margin: 10px 0 10px 10px;
+    color: white;
+    font-weight: bolder;
+    border: 5px solid cornflowerblue;
+    background-color: cornflowerblue;
+}
+
+#myModalId button:first-child {
+    background-color: darkgray;
+    border: 5px solid darkgray;
+}
+
+#divItemId .card-body p {
+    padding: 0;
+}
+
+#divItemId .card-body p {
+    color: darkslategray;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+#divItemId .card-body p:nth-of-type(1) {
+    font-weight: bolder;
+    font-size: x-large;
+    color: cornflowerblue;
+}

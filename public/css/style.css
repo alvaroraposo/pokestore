@@ -1,0 +1,198 @@
+body {
+    padding: 1em 5em 5em 5em;
+    background-color: cornflowerblue;    
+}
+
+.container-fluid {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#root {
+    background-color: inherit;
+}
+
+/* ROW 01 */
+
+#divHeader {
+    padding: 10px 10px 10px 10px; 
+}
+
+#divHeader .jumbotron {
+    border-radius: 20px;    
+    align-items: center;
+    margin-right: 2px;
+}
+
+#divHeader .imgLogo {
+    height: 100%;
+    width: 100%;
+    max-height: 300px;
+}
+
+/* ROW 02 */
+
+
+    /* CARRINHO */
+
+#carrinhoDivId {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+#carrinhoDivId .card-header {
+    float: left;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 0;   
+    border: 5px solid cornflowerblue;
+}
+
+#carrinhoDivId .card-body {
+    padding: 0 10px 5px 10px;
+    border: 5px solid cornflowerblue;
+}
+
+#carrinhoDivId .card-link {    
+    color: cornflowerblue;
+    font-weight: bold; 
+    width: 100%;
+}
+
+#carrinhoDivId .card-link p {
+    padding: 0;
+}
+
+#carrinhoDivId button {
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    width: 80%;
+}
+
+    /* PESQUISA */
+
+#searchDivId {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 0 0 10px 0;
+    padding: 0 0 0 30px;    
+}
+
+#searchDivId input {
+    float: left;
+    outline: none;
+    width: 80%;
+    border: 5px solid cornflowerblue;
+    box-sizing : border-box;
+}
+
+#searchDivId button {
+    float: left;
+    background-color: cornflowerblue;    
+    color: white;
+    width: 16%;
+    height: 44px;
+    text-align: center; 
+    font-weight: bold;   
+    margin: 0 0 0 10px;
+}
+
+/* ROW 03 */
+
+#divPaginacaoId {
+    margin-top: 50px;
+}
+
+#divPaginacaoId li {
+    border: 1px solid cornflowerblue;
+}
+
+/* CARDS */
+
+#divCardsId {
+    padding: 0;
+}
+
+#divCardsId .card {
+    margin: 0 auto;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    align-items: center;
+    float: none;
+    border-radius: 20px;
+    border: 5px solid cornflowerblue;
+    box-sizing : border-box;
+}
+
+#divCardsId .card-body p:nth-of-type(2) {
+    color: darkslategray;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#divCardsId .card-body p:nth-of-type(1) {
+    font-weight: bolder;
+    font-size: x-large;
+    color: cornflowerblue;
+}
+
+#divCardsId .card:hover{
+    background-color: #FFE097;
+    cursor: pointer;
+}
+
+#divCardsId .card img {
+    width: 50%;
+    height: 100%;
+}
+
+#myModalId {
+    position: relative;
+    top: 50%;
+    transform: translateY(-40%);
+    max-width: 50%;
+}
+
+#divFooterId {
+    padding: 15px;
+}
+
+#divFooterId div {
+    background-color: white;
+    border: 5px solid cornflowerblue;
+}
+
+#myConfirmarModalId {
+    position: relative;
+    top: 50%;
+    transform: translateY(-40%);
+    width: 300px;
+    min-width: 20%;
+}
+
+#myConfirmarModalId button {
+    display: inline-block;
+    margin: 0 5px 10px 0;
+    color: white;
+    font-weight: bolder;
+    background-color: cornflowerblue;
+    text-align: center;
+    padding: 10px;
+}
+
+#myConfirmarModalId button:first-child {
+    background-color: darkgray;
+}
+
+#myConfirmarModalId #divFooterId div {
+    padding: 0px;
+}
+
+.close {display: none;}
