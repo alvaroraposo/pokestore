@@ -20,7 +20,9 @@ export default class PokemonGrid extends React.Component {
         showGerenciarModal: false,
         showConfirmarModal: false,
         pokemonModal: null,
-        carrinhoDeCompras: []
+        carrinhoDeCompras: [],
+        pokeLogo1: 1,
+        pokeLogo2: 2
     };
 
     constructor(props) {
@@ -32,17 +34,29 @@ export default class PokemonGrid extends React.Component {
     }
 
     renderLogo() {
-        const poke1 = Math.floor(Math.random() * (891 - 1) + 1);
-        const poke2 = Math.floor(Math.random() * (891 - 1) + 1);
+        const poke1 = this.state.pokeLogo1;
+        const poke2 = this.state.pokeLogo2;
         return (
             <>
                 <div id="divHeader" className="row">
                     <div className="col-md-12">
                         <Jumbotron fluid>
                             <div className="row">
-                                <div className="col-4 d-md-block col-md-3 col-lg-3"><img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke1}.png`} alt=""/></div>
+                                <div className="col-4 d-md-block col-md-3 col-lg-3">
+                                    <img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke1}.png`} alt="" onError={(e) => { 
+                                        e.target.onerror = null;
+
+                                        e.target.src = "image/pikachu.png"
+                                    }}/>
+                                </div>
                                 <div className="col-8 col-md-6 col-lg-6"><img className="imgLogo" src="images/logo.png" alt=""/></div>
-                                <div className="d-none col-md-3 d-md-block  col-lg-3"><img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke2}.png`} alt=""/></div>                                            
+                                <div className="d-none col-md-3 d-md-block  col-lg-3">
+                                    <img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke2}.png`} alt="" onError={(e) => { 
+                                        e.target.onerror = null;
+
+                                        e.target.src = "image/ash.png.png"
+                                    }}/>
+                                </div>                                            
                             </div>                
                         </Jumbotron>			          
                     </div>
@@ -125,8 +139,6 @@ export default class PokemonGrid extends React.Component {
     }
     
     renderCarrinho() {
-
-        console.log("renderCarrinho", this.state.carrinhoDeCompras.length);
         const isVazio = ((!this.state.carrinhoDeCompras) || (this.state.carrinhoDeCompras.length === 0));
         const vazioClass =  isVazio ? "card-text" : "d-none";
 
@@ -243,6 +255,11 @@ export default class PokemonGrid extends React.Component {
     }
 
     componentDidMount() {
+        console.log("componentDidMount");
+        const poke1 = Math.floor(Math.random() * (891 - 1) + 1);
+        const poke2 = Math.floor(Math.random() * (891 - 1) + 1);
+
+        this.setState({...this.state, pokeLogo1: poke1, pokeLogo2: poke2})
         this.loadPage();                
     }
     
