@@ -7,7 +7,8 @@ import GerenciarModal from '../Modais/GerenciarModal';
 import ConfirmarModal from '../Modais/ConfirmarModal';
 
 export default class PokemonGrid extends React.Component {
-
+//https://github.com/felipefadul/desafio-gama-pokestore // Ver design
+//https://seralterego-gama-pokestore.netlify.app/ // Ver design
     STATE_INICIAL = {
         loaded: false,
         inputValue: "",

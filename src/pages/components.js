@@ -67,8 +67,9 @@ export async function getFullPokemonListByName(name, offset=0) {
 
         urls.forEach(async (url) => {  
             await Axios.get(url).then((response) => {
-                    const errorImage = (response.data.sprites.front_default) ? response.data.sprites.front_default : "images/imagem-nao-disponivel.png"  
-                    const imagem = "https://pokeres.bastionbot.org/images/pokemon/" + response.data.id + ".png"
+                    const errorImage = (response.data.sprites.front_default) ? response.data.sprites.front_default : "images/imagem-nao-disponivel.png"
+                    const fileName = response.data.id + ".png"
+                    const imagem = (response.data.id <= 8) ? "images/inicio/" + fileName : "https://pokeres.bastionbot.org/images/pokemon/" + fileName;
                     const stats = [];
 
                     response.data.stats.forEach((item) => {
