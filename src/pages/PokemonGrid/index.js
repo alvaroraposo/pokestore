@@ -21,8 +21,8 @@ export default class PokemonGrid extends React.Component {
         showConfirmarModal: false,
         pokemonModal: null,
         carrinhoDeCompras: [],
-        pokeLogo1: 1,
-        pokeLogo2: 2
+        pokeLogo1: 25,
+        pokeLogo2: 5
     };
 
     constructor(props) {
