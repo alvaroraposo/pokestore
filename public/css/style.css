@@ -29,7 +29,7 @@ body {
 /* ROW 01 */
 
 #divHeader {
-    padding: 10px 10px 10px 10px; 
+    padding: 10px 0px 10px 10px; 
 }
 
 #divHeader .jumbotron {
@@ -42,6 +42,11 @@ body {
     height: 100%;
     width: 100%;
     max-height: 300px;
+    max-width: 800px;
+}
+
+#divHeader div {
+    margin: 0;
 }
 
 /* ROW 02 */

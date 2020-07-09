@@ -32,15 +32,17 @@ export default class PokemonGrid extends React.Component {
     }
 
     renderLogo() {
+        const poke1 = Math.floor(Math.random() * (891 - 1) + 1);
+        const poke2 = Math.floor(Math.random() * (891 - 1) + 1);
         return (
             <>
                 <div id="divHeader" className="row">
                     <div className="col-md-12">
                         <Jumbotron fluid>
                             <div className="row">
-                                <div className="d-none d-md-block col-md-3 col-lg-3"><img className="imgLogo" src="images/pikachu.png" alt=""/></div>
-                                <div className="col-12 col-md-6 col-lg-6"><img className="imgLogo" src="images/logo.png" alt=""/></div>
-                                <div className="d-none col-md-3 d-md-block  col-lg-3"><img className="imgLogo" src="images/ash.png" alt=""/></div>                                            
+                                <div className="col-4 d-md-block col-md-3 col-lg-3"><img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke1}.png`} alt=""/></div>
+                                <div className="col-8 col-md-6 col-lg-6"><img className="imgLogo" src="images/logo.png" alt=""/></div>
+                                <div className="d-none col-md-3 d-md-block  col-lg-3"><img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke2}.png`} alt=""/></div>                                            
                             </div>                
                         </Jumbotron>			          
                     </div>
