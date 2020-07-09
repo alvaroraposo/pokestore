@@ -54,7 +54,7 @@ export default class PokemonGrid extends React.Component {
                                     <img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke2}.png`} alt="" onError={(e) => { 
                                         e.target.onerror = null;
 
-                                        e.target.src = "image/ash.png.png"
+                                        e.target.src = "image/bulbasaur.png"
                                     }}/>
                                 </div>                                            
                             </div>                
