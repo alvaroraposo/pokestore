@@ -44,7 +44,7 @@ export default class PokemonGrid extends React.Component {
                         <Jumbotron fluid>
                             <div className="row">
                                 <div className="col-4 d-md-block col-md-3 col-lg-3">
-                                    <img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke1}.png`} alt="" onError={(e) => { 
+                                    <img className="imgLogo" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${poke1}.png`} alt="" onError={(e) => { 
                                         e.target.onerror = null;
 
                                         e.target.src = "image/pikachu.png"
@@ -52,7 +52,7 @@ export default class PokemonGrid extends React.Component {
                                 </div>
                                 <div className="col-8 col-md-6 col-lg-6"><img className="imgLogo" src="images/logo.png" alt=""/></div>
                                 <div className="d-none col-md-3 d-md-block  col-lg-3">
-                                    <img className="imgLogo" src={`https://pokeres.bastionbot.org/images/pokemon/${poke2}.png`} alt="" onError={(e) => { 
+                                    <img className="imgLogo" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${poke2}.png`} alt="" onError={(e) => { 
                                         e.target.onerror = null;
 
                                         e.target.src = "image/bulbasaur.png"
