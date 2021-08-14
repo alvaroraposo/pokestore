@@ -21,7 +21,10 @@ export async function getPokemonList(offset = 0) {
             urls.forEach(async (url) => {                
                 await Axios.get(url).then((response) => {
                     const errorImage = (response.data.sprites.front_default) ? response.data.sprites.front_default : "images/imagem-nao-disponivel.png";
-                    const imagem = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + response.data.id + ".png";
+                    const fileNumber = (response.data.id < 10) ? "00" + response.data.id : (response.data.id) < 100 ? "0" + response.data.id : response.data.id
+                    const fileName = fileNumber + ".png"
+                    const imagem = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + fileName;
+                    console.log("imagem:", imagem);
                     const stats = [];
 
                     response.data.stats.forEach((item) => {
@@ -68,10 +71,11 @@ export async function getFullPokemonListByName(name, offset=0) {
         urls.forEach(async (url) => {  
             await Axios.get(url).then((response) => {
                     const errorImage = (response.data.sprites.front_default) ? response.data.sprites.front_default : "images/imagem-nao-disponivel.png"
-                    const fileName = response.data.id + ".png"
+                    const fileNumber = (response.data.id < 10) ? "00" + response.data.id : (response.data.id) < 100 ? "0" + response.data.id : response.data.id
+                    const fileName = fileNumber + ".png"
 //                    const imagem = (response.data.id <= 8) ? "images/inicio/" + fileName : "https://pokeres.bastionbot.org/images/pokemon/" + fileName;
                     const imagem = (response.data.id <= 8) ? "images/inicio/" + fileName : "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + fileName;
-                    
+                    console.log("imagem2", imagem);
                     const stats = [];
 
                     response.data.stats.forEach((item) => {
