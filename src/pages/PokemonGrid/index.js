@@ -5,6 +5,7 @@ import { getPokemonList, getFullPokemonListByName } from '../components';
 import ItemModal from '../Modais/ItemModal'
 import GerenciarModal from '../Modais/GerenciarModal';
 import ConfirmarModal from '../Modais/ConfirmarModal';
+import path from 'path';
 
 export default class PokemonGrid extends React.Component {
 //https://github.com/felipefadul/desafio-gama-pokestore // Ver design
@@ -35,8 +36,11 @@ export default class PokemonGrid extends React.Component {
     }
 
     renderLogo() {
-        const poke1 = this.state.pokeLogo1;
-        const poke2 = this.state.pokeLogo2;
+        const poke1 = (this.state.pokeLogo1 >= 100) ? this.state.pokeLogo1 : (this.state.pokeLogo1 >= 10) ? "0" + this.state.pokeLogo1 : "00" + this.state.pokeLogo1;
+        const poke2 = (this.state.pokeLogo2 >= 100) ? this.state.pokeLogo2 : (this.state.pokeLogo2 >= 10) ? "0" + this.state.pokeLogo2 : "00" + this.state.pokeLogo2;
+
+        console.log("POKE", poke1, poke2);
+        
         return (
             <>
                 <div id="divHeader" className="row">
@@ -46,16 +50,14 @@ export default class PokemonGrid extends React.Component {
                                 <div className="col-4 d-md-block col-md-3 col-lg-3">
                                     <img className="imgLogo" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${poke1}.png`} alt="" onError={(e) => { 
                                         e.target.onerror = null;
-
-                                        e.target.src = "image/pikachu.png"
+                                        e.target.src = "/image/pikachu.png"
                                     }}/>
                                 </div>
                                 <div className="col-8 col-md-6 col-lg-6"><img className="imgLogo" src="images/logo.png" alt=""/></div>
                                 <div className="d-none col-md-3 d-md-block  col-lg-3">
                                     <img className="imgLogo" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${poke2}.png`} alt="" onError={(e) => { 
                                         e.target.onerror = null;
-
-                                        e.target.src = "image/bulbasaur.png"
+                                        e.target.src = "/image/bulbasaur.png"
                                     }}/>
                                 </div>                                            
                             </div>                
